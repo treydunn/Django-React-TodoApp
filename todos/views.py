@@ -33,3 +33,9 @@ def delete(request, todo_id):
     query = Todo.objects.get(id=todo_id)
     query.delete()
     return redirect('/todos')
+
+def complete(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    todo.complete = True
+    todo.save()
+    return redirect('/todos')
