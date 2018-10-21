@@ -1,0 +1,36 @@
+{% include 'partials/header.html' %}
+{% include 'partials/modal.html' %}
+
+      <div class="card">
+        <h5 class="card-header"> {% now "jS F Y" %}</h5>
+        <ul class="list-group list-group-flush">
+          {% for todo in todos %}
+          <li class="list-group-item">
+            <form class="form-check" action="{% url 'delete' todo.id %}" >
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col">
+                    <input type="checkbox" class="form-check-input" value={{todo.id}}>
+                  </div>
+                  <div class="col-6">
+                    <p class="form-check-label todo-item">{{todo.title}}: {{todo.text}}</p>
+                  </div>
+                  <div class="col">
+                    <button>Delete</button>
+                  </div>
+                </div>
+            </form>
+          </li>
+          {% endfor %}
+          <li class="list-group-item">
+            <button type="button" id="show" class="btn btn-info" data-text-swap="HIDE COMPLETED" onclick="showToggle()">SHOW COMPLETED</button>
+            <button type="button" id="add" class="btn btn-primary" onclick="openModal()">ADD NEW +</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {% include 'partials/modal.html' %}
+
+  </body>
+</html>

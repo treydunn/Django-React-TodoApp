@@ -1,0 +1,14 @@
+<!-- {% include 'partials/header.html' %} -->
+
+<form action="{% url 'add' %}" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+  </div>
+  <div class="form-group">
+    <label for="text">Description</label>
+    <textarea class="form-control" id="description" rows="3" name="text"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" value="Submit" onClick="onSubmit()">ADD</button>
+</form>

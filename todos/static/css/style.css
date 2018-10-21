@@ -1,0 +1,22 @@
+html, body {
+  margin: 5% auto;
+  width: 80%;
+}
+
+#add {
+  float: right;
+}
+
+#myModal {
+  height: 600px;
+  width: 40%;
+  margin: 10% auto;
+}
+
+.modal-header {
+  display: inline !important;
+}
+
+.todo-item {
+  margin-left: 3%;
+}
