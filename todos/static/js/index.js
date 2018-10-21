@@ -13,3 +13,12 @@ function showToggle() {
     }
 
 }
+
+function myFunction(id) {
+  if(document.getElementById(id).checked) {
+    console.log('id', id, 'is checked')
+  }
+  else {
+    console.log('Unchecked!')
+  }
+}

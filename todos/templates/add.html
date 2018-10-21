@@ -1,6 +1,6 @@
 <!-- {% include 'partials/header.html' %} -->
 
-<form action="{% url 'add' %}" method="post">
+<form action="{% url 'add' %}" method="post" id="add-form">
   {% csrf_token %}
   <div class="form-group">
     <label for="title">Title</label>
@@ -10,5 +10,5 @@
     <label for="text">Description</label>
     <textarea class="form-control" id="description" rows="3" name="text"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary" value="Submit" onClick="onSubmit()">ADD</button>
+  <button type="submit" class="btn btn-primary" value="Submit">ADD</button>
 </form>

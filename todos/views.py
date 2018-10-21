@@ -32,4 +32,4 @@ def add(request):
 def delete(request, todo_id):
     query = Todo.objects.get(id=todo_id)
     query.delete()
-    return redirect('/todo')
+    return redirect('/todos')

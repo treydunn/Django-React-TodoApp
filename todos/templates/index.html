@@ -10,7 +10,7 @@
                 {% csrf_token %}
                 <div class="row">
                   <div class="col">
-                    <input type="checkbox" class="form-check-input" value={{todo.id}}>
+                    <input type="checkbox" class="form-check-input" value={{todo.id}} id={{todo.id}} onclick="myFunction(id)">
                   </div>
                   <div class="col-6">
                     <p class="form-check-label todo-item">{{todo.title}}: {{todo.text}}</p>
