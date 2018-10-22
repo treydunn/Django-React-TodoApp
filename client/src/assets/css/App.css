@@ -1,0 +1,36 @@
+html, body {
+  margin: 5% auto;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50; }
+
+.header {
+  border-bottom: 1px solid #ccc;
+  font-size: 2em;
+  padding: 0.4em; }
+
+.checkbox.form-check-input {
+  left: 3em !important; }
+
+#todo {
+  margin-top: 3em; }
+
+#select {
+  width: 20%;
+  display: inline;
+  float: right; }
+
+.list-group-item.active {
+  background-color: #ccc !important;
+  border: 0px !important; }
+
+h5.list-group-item-heading {
+  margin-bottom: 0px !important;
+  color: black !important; }
+
+.todos.container {
+  margin-top: 3em !important; }
+
+#clearBtn {
+  float: right; }
