@@ -37,10 +37,10 @@
 ### Dependencies & Libraries
 
 #### Django
-1. Django                         1.10^
-2. django-cors-headers             2.4^
-3. django-jsonify                  0.3^
-4. djangorestframework             3.9^
+1. Django  **1.10^**
+2. django-cors-headers             **2.4^**
+3. django-jsonify                  **0.3^**
+4. djangorestframework             **3.9^**
 
 #### React
-1. (reactstrap)[https://reactstrap.github.io/]
+1. [reactstrap](https://reactstrap.github.io/)
