@@ -27,8 +27,7 @@
 5. Run `python manage.py makemigrations` and `python manage.py migrate` to migrate database.
 6. For checking, you can go `use todolist;` and `show tables;` in your MySql and you should see all available tables that have been migrated.
 
-#### MacOS
- **MySQL**
+**MacOS - MySQL**
  - Install MySql with  Homebrew, `brew install mysql`.
  - Run `brew services start mysql`.
  - To check if what services are running, `brew services list`.
