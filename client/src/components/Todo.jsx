@@ -5,6 +5,8 @@ import { Button, ListGroup, ListGroupItem, ListGroupItemHeading, Row, Col, Input
 import axios from 'axios';
 
 import AddItem from './AddItem';
+import UpdateItem from './UpdateItem';
+
 // unique ID generator
 const uuidv4 = require('uuid/v4');
 
@@ -18,11 +20,15 @@ class Todo extends Component {
     this.state = {
       'items': [],
       'date': date,
-      'modal': false
+      'modal': false,
+      'updatedItem': {}
     };
 
     this.toggleModal = this.toggleModal.bind(this);
+    this.updateModal = this.updateModal.bind(this);
     this.handleChild = this.handleChild.bind(this);
+    this.updateChild = this.updateChild.bind(this);
+
   }
 
   componentWillMount() {
@@ -45,9 +51,12 @@ class Todo extends Component {
     });
   }
 
+  updateChild = (value) => {
+    console.log('getUpdateChild', value)
+  }
+
   handleChild = (value) => {
     const newItem = {
-      'id': uuidv4(),
       'title': value.title,
       'text': value.text
     };
@@ -59,6 +68,8 @@ class Todo extends Component {
   }
 
   delete = (item) => {
+    console.log('this items: ', this.state.items);
+    console.log('Item to be deleted', item);
     // to enable csrf tokens with axios
     axios.defaults.xsrfCookieName = 'csrftoken';
     axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -86,6 +97,12 @@ class Todo extends Component {
     });
   }
 
+  updateModal = (item) => {
+    this.setState({
+      update: !this.state.update,
+      updatedItem: item
+    });
+  }
 
   render() {
 
@@ -116,7 +133,7 @@ class Todo extends Component {
                     <Col>{item.title}</Col>
                     <Col>{item.text}</Col>
                     <Col>
-                      <Button color="warning" size="sm">UPDATE</Button>{' '}
+                      <Button color="warning" size="sm" onClick={() => this.updateModal(item)}>UPDATE</Button>{' '}
                       <Button color="danger" size="sm"  onClick={() => this.delete(item)}>DELETE</Button>{' '}
                     </Col>
                   </Row>
@@ -133,6 +150,15 @@ class Todo extends Component {
            <ModalBody>
              {/* add a new todo form */}
              <AddItem getChild={this.handleChild}/>
+           </ModalBody>
+         </Modal>
+
+
+         <Modal isOpen={this.state.update} toggle={this.updateModal} className="addModal" backdrop='static' >
+           <ModalHeader toggle={this.updateModal}>Update Item</ModalHeader>
+           <ModalBody>
+             {/* update a todo item form */}
+             <UpdateItem getUpdateChild={this.updateChild} sendChild={this.state.updatedItem}/>
            </ModalBody>
          </Modal>
 

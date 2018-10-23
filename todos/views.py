@@ -24,9 +24,10 @@ def add(request):
     data = json.loads(request.body.decode('utf-8'))
     # removing unicodes
     data = ast.literal_eval(json.dumps(data))
+    id = data['id']
     title = data['title']
     text = data['text']
-    todo = Todo(title=title, text=text)
+    todo = Todo(id=id, title=title, text=text)
     # save the todo
     todo.save()
     return HttpResponse(todo)

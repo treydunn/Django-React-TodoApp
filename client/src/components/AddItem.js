@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import axios from 'axios';
-
+// unique ID generator
+const uuidv4 = require('uuid/v4');
 
 class AddItem extends Component {
   constructor(props) {
@@ -21,7 +22,9 @@ class AddItem extends Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
+    const uuid = uuidv4();
     const todoData = {
+      id:  uuid,
       title: this.state.title,
       text: this.state.text
     };
@@ -42,6 +45,7 @@ class AddItem extends Component {
     });
 
     const childItem = {
+      id: uuid,
       title: this.state.title,
       text: this.state.text,
       modalStatus: false
